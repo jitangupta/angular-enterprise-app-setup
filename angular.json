@@ -238,6 +238,41 @@
           }
         }
       }
+    },
+    "article-viewer": {
+      "projectType": "library",
+      "root": "projects/article-viewer",
+      "sourceRoot": "projects/article-viewer/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/article-viewer/tsconfig.lib.json",
+            "project": "projects/article-viewer/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/article-viewer/src/test.ts",
+            "tsConfig": "projects/article-viewer/tsconfig.spec.json",
+            "karmaConfig": "projects/article-viewer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/article-viewer/tsconfig.lib.json",
+              "projects/article-viewer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "angular-enterprise-app-setup"
 }
